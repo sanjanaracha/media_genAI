@@ -15,7 +15,7 @@ cursor_obj=conn_obj.cursor(dictionary=True)
 #users table
 
 cursor_obj.execute("""
-create table if not exists users1(
+create table if not exists users2(
                id int primary key auto_increment,
                name varchar(100),
                email varchar(100),
@@ -26,7 +26,7 @@ create table if not exists users1(
 #files tables
 
 cursor_obj.execute("""
-CREATE TABLE IF NOT EXISTS files1(
+CREATE TABLE IF NOT EXISTS files2(
                id int primary key auto_increment,
                user_id int,
                file_name VARCHAR(255),
