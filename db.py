@@ -42,3 +42,5 @@ CREATE TABLE IF NOT EXISTS files (
 conn_obj.commit()
 
 print("tables created successfully")
+
+

@@ -29,6 +29,15 @@ with signup:
         password=st.text_input("password",type="password")
         btn=st.form_submit_button("signup")
 
+        if btn:
+            qurey="insert into users(name,email,password)values(%s,%s,%s)"
+            values=(name,email,password)
+            cursor_obj.execute(qurey,values)
+            conn_obj.commit()
+            st.write("user added successfully")
+
+
+
 with login:
     st.header("Login")
     with st.form("login"):
