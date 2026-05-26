@@ -15,7 +15,7 @@ cursor_obj=conn_obj.cursor(dictionary=True)
 #users table
 
 cursor_obj.execute("""
-create table if not exists users2(
+create table if not exists users(
                id int primary key auto_increment,
                name varchar(100),
                email varchar(100),
@@ -23,18 +23,20 @@ create table if not exists users2(
                )
 """)
 
-#files tables
-
+# files table
 cursor_obj.execute("""
-CREATE TABLE IF NOT EXISTS files2(
-               id int primary key auto_increment,
-               user_id int,
-               file_name VARCHAR(255),
-               file_type VARCHAR(100),
-               file_url text,
-               upload_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-               FOREIGN KEY(user_id) references users(id)
-               )
+CREATE TABLE IF NOT EXISTS files (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT,
+    file_name VARCHAR(255),
+    file_type VARCHAR(100),
+    file_url TEXT,
+    upload_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_user
+        FOREIGN KEY (user_id)
+        REFERENCES users(id)
+        ON DELETE CASCADE
+)
 """)
 
 conn_obj.commit()
