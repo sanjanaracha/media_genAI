@@ -1,11 +1,22 @@
 import streamlit as st
 from db import conn_obj,cursor_obj
 
+import cloudinary
+import cloudinary.uploader
+#pip install cloudinary 
+
+
 st.title("Media Platform")
 
+cloudinary.config(
+    cloud_name=st.secrets["cloud_name"],
+    api_key=st.secrets["api_key"],
+    api_secret=st.secrets["api_secret"]
+)
 
 if "user" not in st.session_state:
     st.session_state.user=None
+
 
 
 # cursor_obj.execute("show databases")
@@ -39,6 +50,10 @@ def dashboard():
             st.video(choosedfile)
         elif "audio" in choosedfile.type:
             st.audio(choosedfile)
+
+        if st.button("upload file to cloudinary"):
+            cloudinary.uploader.upload(choosedfile,resource_type="auto")
+        
 
 
 
