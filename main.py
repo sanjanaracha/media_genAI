@@ -25,6 +25,16 @@ def dashboard():
     st.sidebar.success("welcome user")
     st.header("dashboard")
 
+    opt=st.sidebar.selectbox("choose:--",["uploadFiles","ViewFiles","Logout"])
+
+    if opt=="uploadFiles":
+        st.header("upload your files here")
+        choosedfile=st.file_uploader("choose file",type=["pdf","jpg","jpeg","png","mp3","mp4"])
+        if choosedfile:
+            st.write(choosedfile.name)
+            st.write(choosedfile.type)
+
+
 
 def signup_fun():
     st.header("SignUp")
