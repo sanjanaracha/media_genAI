@@ -17,7 +17,7 @@ for db in dbs:
 cursor_obj.execute("show tables")
 tables=cursor_obj.fetchall()
 
-for db in dbs:
+for db in tables:
     st.write(db)
 
 
