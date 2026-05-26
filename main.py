@@ -12,7 +12,7 @@ cursor_obj.execute("show databases")
 dbs=cursor_obj.fetchall()
 
 for db in dbs:
-    st.wrute(db)
+    st.write(db)
 
 
 with signup:
