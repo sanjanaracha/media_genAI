@@ -58,7 +58,7 @@ def dashboard():
             st.write("file uploded to cloudinary")
 
     elif opt=="Logout":
-        st.session_state.user==None
+        st.session_state.user=None
         st.success("logout success")
         st.rerun() 
 
