@@ -52,7 +52,10 @@ def dashboard():
             st.audio(choosedfile)
 
         if st.button("upload file to cloudinary"):
-            cloudinary.uploader.upload(choosedfile,resource_type="auto")
+            uploded_dict_obj=cloudinary.uploader.upload(choosedfile,resource_type="auto")
+            url=uploded_dict_obj["secure_url"]
+            st.write(url)
+            st.write("file uploded to cloudinary")
         
 
 
