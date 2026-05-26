@@ -33,6 +33,14 @@ def dashboard():
         if choosedfile:
             st.write(choosedfile.name)
             st.write(choosedfile.type)
+        if "image" in choosedfile.type:
+            st.image(choosedfile)
+        elif "video" in choosedfile.type:
+            st.video(choosedfile)
+        elif "audio" in choosedfile.type:
+            st.audio(choosedfile)
+
+
 
 
 
