@@ -14,7 +14,11 @@ dbs=cursor_obj.fetchall()
 for db in dbs:
     st.write(db)
 
+cursor_obj.execute("show tables")
+tables=cursor_obj.fetchall()
 
+for db in dbs:
+    st.write(db)
 
 
 with signup:
