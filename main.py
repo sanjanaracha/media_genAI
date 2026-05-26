@@ -60,7 +60,7 @@ def dashboard():
     elif opt=="Logout":
         st.session_state.user==None
         st.success("logout success")
-        st.rerun()   
+        st.rerun() 
 
 
 
